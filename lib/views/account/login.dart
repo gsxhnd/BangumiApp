@@ -24,15 +24,11 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Image.asset('assets/logo.png',
-                        scale: 1.0, //进行缩放
-                        fit: BoxFit.cover // 充满父容器
-                        ),
                     TextFormField(
                       decoration: const InputDecoration(
                         icon: Icon(Icons.person),
                         hintText: '请输入账号',
-                        labelText: 'Name',
+                        labelText: 'Name12',
                       ),
                       onSaved: (String value) {
                         setState(() {

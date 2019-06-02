@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primaryTextTheme: TextTheme(title: TextStyle(color: Colors.white)),
         primaryIconTheme: IconThemeData(color: Colors.white),
-//        iconTheme: IconThemeData(color: Colors.white),
         tabBarTheme: TabBarTheme(labelColor: Colors.white),
       ),
       home: SplashScreen(),

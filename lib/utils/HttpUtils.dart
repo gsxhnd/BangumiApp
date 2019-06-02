@@ -26,7 +26,6 @@ class HttpUtil {
   static Dio dio;
 
   /// default options
-//  static const String API_PREFIX = 'http://api.zizhaotech.com/v1';
   static const String API_PREFIX = 'http://192.168.180.2:8080/v1';
 //  static const String API_PREFIX = 'http://192.168.5.106:8080/v1';
   static const int CONNECT_TIMEOUT = 10000;
