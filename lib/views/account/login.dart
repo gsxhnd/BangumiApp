@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: const InputDecoration(
                         icon: Icon(Icons.person),
                         hintText: '请输入账号',
-                        labelText: 'Name12',
+                        labelText: 'Name',
                       ),
                       onSaved: (String value) {
                         setState(() {
