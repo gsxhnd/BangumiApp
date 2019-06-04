@@ -11,7 +11,7 @@ class DateUtils {
    static const String MINUTE_ONLY_PATTERN = "mm";
    static const String HOUR_ONLY_PATTERN = "HH";
 
-  stringToDate(String strDate, String pattern) {
+  static String strDataToString(String strDate, String pattern) {
     var date = DateTime.parse(strDate).toLocal();
     var format = new DateFormat(pattern);
     String formatted = format.format(date);
