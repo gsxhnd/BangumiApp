@@ -17,4 +17,9 @@ class DateUtils {
     String formatted = format.format(date);
     return formatted;
   }
+
+  static DateTime stringToDate(String strDate, String pattern) {
+    var date = DateTime.parse(strDate).toLocal();
+    return date;
+  }
 }
