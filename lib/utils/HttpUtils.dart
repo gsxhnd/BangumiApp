@@ -1,11 +1,5 @@
 import 'package:dio/dio.dart';
 
-
-const ApiList = {
-  "getProductivity":"/capacity", // 产量接口
-};
-
-
 class ResponseData {
   final String code;
   final DateTime message;
