@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'pages/splash_screen.dart';
 
+import 'pages/account/LoginWebview.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -19,7 +21,10 @@ class MyApp extends StatelessWidget {
         tabBarTheme: TabBarTheme(labelColor: Colors.white),
         buttonTheme: ButtonThemeData(buttonColor: Color.fromARGB(255, 183, 50, 39),textTheme: ButtonTextTheme.primary),
       ),
-      home: SplashScreen()
+      home: SplashScreen(),
+      routes: {
+        "/loginWebView":(BuildContext context) => new LoginWebViewPage(),
+      },
     );
   }
 }
