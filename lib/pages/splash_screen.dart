@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:async';
 
-import 'package:bangumi/pages/account/LoginPage.dart';
+import 'package:bangumi/pages/HomePage.dart';
 
 class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 //            MaterialPageRoute(builder: (context)=> _isLogin ? ConsolePage() : LoginPage()),
 //                (route)=> route==null);
         Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context)=> LoginPage()),
+            MaterialPageRoute(builder: (context)=> HomePage()),
                 (route)=> route==null);
       }
     });

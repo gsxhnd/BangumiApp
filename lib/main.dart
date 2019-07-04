@@ -13,13 +13,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         buttonColor: Color.fromARGB(255, 183, 50, 39),
-        appBarTheme: AppBarTheme(color: Color.fromARGB(255, 183, 50, 39)),
+        appBarTheme: AppBarTheme(color: Color.fromARGB(255, 240, 145, 153)),
         brightness: Brightness.light,
         primaryTextTheme: TextTheme(title: TextStyle(color: Colors.white)),
         primaryIconTheme: IconThemeData(color: Colors.white),
 //        iconTheme: IconThemeData(color: Colors.white),
         tabBarTheme: TabBarTheme(labelColor: Colors.white),
-        buttonTheme: ButtonThemeData(buttonColor: Color.fromARGB(255, 183, 50, 39),textTheme: ButtonTextTheme.primary),
+        buttonTheme: ButtonThemeData(buttonColor: Color.fromARGB(255,240, 145, 153),textTheme: ButtonTextTheme.primary),
       ),
       home: SplashScreen(),
       routes: {
