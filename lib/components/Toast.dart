@@ -2,7 +2,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 
 class Toast {
-  void normal (String msg) {
+  static void warm (String msg) {
     Fluttertoast.showToast(
         msg: msg,
         gravity: ToastGravity.BOTTOM,
@@ -12,7 +12,7 @@ class Toast {
         fontSize: 16.0);
   }
 
-  void success (String msg) {
+  static void success (String msg) {
     Fluttertoast.showToast(
         msg: msg,
         gravity: ToastGravity.BOTTOM,
@@ -22,10 +22,10 @@ class Toast {
         fontSize: 16.0);
   }
 
-  void fail (String msg) {
+  static void fail (String msg) {
     Fluttertoast.showToast(
         msg: msg,
-        gravity: ToastGravity.CENTER,
+        gravity: ToastGravity.BOTTOM,
         timeInSecForIos: 1,
         backgroundColor: Color.fromARGB(190, 183, 50, 39),
         textColor: Colors.white,
