@@ -1,5 +1,3 @@
-import '../utils/HttpUtil.dart';
-
 import 'package:dio/dio.dart';
 
 class CommonRequest {

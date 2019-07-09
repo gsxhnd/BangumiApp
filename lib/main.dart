@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'pages/splash_screen.dart';
 
+import 'pages/HomePage.dart';
+import 'pages/account/LoginPage.dart';
 import 'pages/account/LoginWebview.dart';
 
 void main() => runApp(MyApp());
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
       ),
       home: SplashScreen(),
       routes: {
+        "/home":(BuildContext context) => new HomePage(),
+        "/login":(BuildContext context) => new LoginPage(),
         "/loginWebView":(BuildContext context) => new LoginWebViewPage(),
       },
     );
