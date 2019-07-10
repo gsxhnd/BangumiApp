@@ -14,20 +14,29 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        buttonColor: Color.fromARGB(255, 183, 50, 39),
-        appBarTheme: AppBarTheme(color: Color.fromARGB(255, 240, 145, 153)),
+//        buttonColor: Color.fromARGB(255, 183, 50, 39),
+        buttonColor: Colors.white,
         brightness: Brightness.light,
-        primaryTextTheme: TextTheme(title: TextStyle(color: Colors.white)),
+        appBarTheme: AppBarTheme(color: Color.fromARGB(255, 240, 145, 153)),
+        textTheme: TextTheme(
+            title: TextStyle(color: Colors.white),
+            button: TextStyle(color: Colors.white)),
+        primaryTextTheme: TextTheme(
+            title: TextStyle(color: Colors.white),
+            button: TextStyle(color: Colors.white)),
         primaryIconTheme: IconThemeData(color: Colors.white),
-//        iconTheme: IconThemeData(color: Colors.white),
         tabBarTheme: TabBarTheme(labelColor: Colors.white),
-        buttonTheme: ButtonThemeData(buttonColor: Color.fromARGB(255,240, 145, 153),textTheme: ButtonTextTheme.primary),
+        buttonTheme: ButtonThemeData(
+            buttonColor: Color.fromARGB(255, 240, 145, 153),
+            minWidth: double.infinity,
+
+        ),
       ),
       home: SplashScreen(),
       routes: {
-        "/home":(BuildContext context) => new HomePage(),
-        "/login":(BuildContext context) => new LoginPage(),
-        "/loginWebView":(BuildContext context) => new LoginWebViewPage(),
+        "/home": (BuildContext context) => new HomePage(),
+        "/login": (BuildContext context) => new LoginPage(),
+        "/loginWebView": (BuildContext context) => new LoginWebViewPage(),
       },
     );
   }

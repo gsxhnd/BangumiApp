@@ -4,6 +4,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'progress/ProgressPage.dart';
 import 'rakuen/RakuenPage.dart';
 import 'timeline/TimeLinePage.dart';
+import 'account/AccountPage.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,9 +12,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> _title = ["", "", ""];
+  List<String> _title = ["", "", "", ""];
   int _currentIndex = 0;
-  List _pageList = [TimeLinePage(), ProgressPage(), RakuenPage()];
+  List _pageList = [TimeLinePage(), ProgressPage(), RakuenPage(), AccountPage()];
   PageController _controller = PageController(initialPage: 0);
 
   void _pageChange(int index) {
@@ -40,13 +41,16 @@ class _HomePageState extends State<HomePage> {
           itemBuilder: (context, index) => _pageList[index]),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.red,
+        type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.access_time), title: Text("时间胶囊")),
           BottomNavigationBarItem(
+              icon: Icon(MdiIcons.compassOutline), title: Text("超展开")),
+          BottomNavigationBarItem(
               icon: Icon(Icons.favorite_border), title: Text("进度")),
           BottomNavigationBarItem(
-              icon: Icon(MdiIcons.compassOutline), title: Text("超展开")),
+              icon: Icon(Icons.person_outline), title: Text("个人中心")),
         ],
         currentIndex: _currentIndex,
         onTap: (index) {
