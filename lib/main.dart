@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Bangumi',
       theme: ThemeData(
         primarySwatch: Colors.blue,
 //        buttonColor: Color.fromARGB(255, 183, 50, 39),

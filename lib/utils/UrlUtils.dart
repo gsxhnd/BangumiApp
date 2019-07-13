@@ -1,6 +1,6 @@
 class Url {
-  static const String _devApiUrl = "";
-  static const String _proApiUrl = "";
+  static const String _devApiUrl = "https://bgm.tv";
+  static const String _proApiUrl = "https://bgm.tv";
   static const String _devStaticUrl = "";
   static const String _proStaticUrl = "";
   static const String _devWebViewUrl = "";
@@ -26,7 +26,7 @@ class Url {
   }
 
   /// 当前环境是否为开发模式
-  static bool isDev({status: false}) {
+  static bool isDev({status: true}) {
     return status;
   }
 }
