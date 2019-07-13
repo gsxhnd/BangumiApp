@@ -111,7 +111,7 @@ class HttpUtil {
   }
 
   /// request method
-  request(String url, {data, method, bool upload = false}) async {
+  request(String url, {data, method}) async {
     data = data ?? {};
     method = method ?? 'GET';
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -119,10 +119,6 @@ class HttpUtil {
     if (userToken == null) {
     } else {
       dio.options.headers["Authorization"] = "Bearer " + userToken;
-    }
-    if (upload) {
-      print("content_type should be 'multipart/form-data'");
-      dio.options.headers["Content-Type"] = "multipart/form-data";
     }
 
     Response response = await dio.request(url,
