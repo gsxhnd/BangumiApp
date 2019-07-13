@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../api/auth.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -8,10 +10,16 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-  _skipLogin() async {
+  void _skipLogin() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool("skipLogin", true).then((_) {
       Navigator.of(context).pushReplacementNamed("/home");
+    });
+  }
+
+  void _getAccessToken(String code) async {
+    AuthRequest.getAccessToken(code).then((val) {
+      print(val);
     });
   }
 
@@ -40,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                   print(_code.runtimeType);
                   if (_code.runtimeType == String) {
                     if (_code.toString().isNotEmpty) {
-                      print(_code);
+                      _getAccessToken(_code);
                     }
                   }
                 },
