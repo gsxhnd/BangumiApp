@@ -10,11 +10,11 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  String _userToken;
+  String _accessToken;
 
   _getUserInfo() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _userToken = prefs.get("userToken");
+    _accessToken = prefs.get("accessToken");
   }
 
   @override

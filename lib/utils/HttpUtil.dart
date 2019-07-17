@@ -115,7 +115,7 @@ class HttpUtil {
     data = data ?? {};
     method = method ?? 'GET';
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    String userToken = sharedPreferences.getString("userToken");
+    String userToken = sharedPreferences.getString("accessToken");
     if (userToken == null) {
     } else {
       dio.options.headers["Authorization"] = "Bearer " + userToken;

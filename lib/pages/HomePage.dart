@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'progress/ProgressPage.dart';
 import 'rakuen/RakuenPage.dart';
 import 'timeline/TimeLinePage.dart';
 import 'account/AccountPage.dart';
+
+import '../api/auth.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -23,6 +26,20 @@ class _HomePageState extends State<HomePage> {
         _currentIndex = index;
       });
     }
+  }
+
+  /// 1.获取用户信息
+  /// 2.判断token是否过期
+  void _getUserState() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String _accessToken = prefs.getString("accessToken");
+    await AuthRequest.getAccessTokenStatus(_accessToken).then((val) {});
+  }
+
+  @override
+  void initState() {
+    _getUserState();
+    super.initState();
   }
 
   @override
