@@ -33,7 +33,9 @@ class _HomePageState extends State<HomePage> {
   void _getUserState() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String _accessToken = prefs.getString("accessToken");
-    await AuthRequest.getAccessTokenStatus(_accessToken).then((val) {});
+    if (_accessToken != null) {
+      await AuthRequest.getAccessTokenStatus(_accessToken).then((val) {});
+    }
   }
 
   @override
