@@ -68,8 +68,7 @@ class HttpUtil {
       print("相应数据code:" + response.data.toString());
       var res = json.decode(response.toString());
       if (res["code"] != 0 && res["code"] != 20103) {
-        throw new DioError(message: res['message'], error: res["code"]);
-//            throw res["code"];
+        throw new DioError(response: res['message'], error: res["code"]);
       }
       return response;
     }, onError: (DioError err) {
