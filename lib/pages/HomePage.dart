@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> _title = ["", "", "", ""];
+  List<String> _title = ["时间胶囊", "超展开", "进度", "个人中心"];
   int _currentIndex = 0;
   List _pageList = [TimeLinePage(), ProgressPage(), RakuenPage(), AccountPage()];
   PageController _controller = PageController(initialPage: 0);
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
           itemCount: _pageList.length,
           itemBuilder: (context, index) => _pageList[index]),
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.red,
+        selectedItemColor: Color.fromARGB(255, 240, 145, 153),
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
         ],
         currentIndex: _currentIndex,
         onTap: (index) {
-          print(_title[index]);
+//          print(_title[index]);
           _controller.jumpToPage(index);
         },
       ),

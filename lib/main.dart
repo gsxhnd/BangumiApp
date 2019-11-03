@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
         buttonTheme: ButtonThemeData(
             buttonColor: Color.fromARGB(255, 240, 145, 153),
             minWidth: double.infinity,
-
         ),
+        bottomAppBarTheme: BottomAppBarTheme(color: Color.fromARGB(255, 240, 145, 153))
       ),
       home: SplashScreen(),
       routes: {
