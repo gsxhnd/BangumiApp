@@ -1,5 +1,5 @@
 name: bangumi
-description: A new Flutter application.
+description: A new Flutter project.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -36,13 +36,14 @@ dependencies:
   material_design_icons_flutter: ^3.2.4096
   font_awesome_flutter: ^8.5.0
   cached_network_image: ^1.1.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 
 # For information on the generic Dart part of this file, see the
-# following page: https://www.dartlang.org/tools/pub/pubspec
+# following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
