@@ -1,3 +1,4 @@
+import 'package:bangumi/api/auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -14,7 +15,10 @@ class _AccountPageState extends State<AccountPage> {
 
   _getUserInfo() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _accessToken = prefs.get("accessToken");
+    setState(() {
+      _accessToken = prefs.getString("access_token");
+    });
+
   }
 
   @override
@@ -25,8 +29,14 @@ class _AccountPageState extends State<AccountPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: NeedLoginWidget(),
-    );
+    if (_accessToken == null) {
+      return Container(
+        child: NeedLoginWidget(),
+      );
+    } else {
+      return Container(
+        child: Text(_accessToken),
+      );
+    }
   }
 }

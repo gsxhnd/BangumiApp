@@ -1,8 +1,6 @@
 import '../utils/HttpUtil.dart';
 
-
 class AuthRequest {
-
   /// 第三方应用使用 code（验证代码）换取 Access Token
   /// 返回:
   /// "access_token":"YOUR_ACCESS_TOKEN",
@@ -11,17 +9,17 @@ class AuthRequest {
   /// "scope":null,
   /// "refresh_token":"YOUR_REFRESH_TOKEN"
   /// "user_id" : USER_ID
-  static Future getAccessToken(String code) {
-    Map data = {
-      "grant_type": "authorization_code",
-      "client_id": "bgm9015c6118aa20348",
-      "client_secret": "client_secret",
-      "code": code,
-      "redirect_uri": "http:///code",
-      "state": "12313"
-    };
-    return HttpUtil()
-        .request("/oauth/access_token", method: "POST", data: data);
+  static Future getAccessToken(String code) async {
+//    Map data = {
+//      "grant_type": "authorization_code",
+//      "client_id": "bgm9015c6118aa20348",
+//      "client_secret": "client_secret",
+//      "code": code,
+//      "redirect_uri": "http:///code",
+//      "state": "12313"
+//    };
+    String url = "http://192.168.4.238:8080/code?code=$code";
+    return HttpUtil().request(url, method: "GET");
   }
 
   /// 授权有效期刷新
@@ -52,10 +50,7 @@ class AuthRequest {
   ///  "scope":null,
   ///  "user_id" : USER_ID
   static Future getAccessTokenStatus(String accessToken) {
-    Map data = {
-      "access_token": accessToken,
-    };
     return HttpUtil()
-        .request("/oauth/token_status", method: "POST", data: data);
+        .request("https://bgm.tv/oauth/token_status", method: "POST");
   }
 }

@@ -28,14 +28,9 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  /// 1.获取用户信息
-  /// 2.判断token是否过期
   void _getUserState() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String _accessToken = prefs.getString("accessToken");
-    if (_accessToken != null) {
-      await AuthRequest.getAccessTokenStatus(_accessToken).then((val) {});
-    }
+      await AuthRequest.getAccessTokenStatus("").then((_) {
+      });
   }
 
   @override
