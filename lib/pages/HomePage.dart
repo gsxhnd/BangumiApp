@@ -15,9 +15,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> _title = ["时间胶囊", "超展开", "进度", "个人中心"];
+  List<String> _title = ["时间胶囊", "进度", "个人中心"];
   int _currentIndex = 0;
-  List _pageList = [TimeLinePage(), ProgressPage(), RakuenPage(), AccountPage()];
+  List _pageList = [TimeLinePage(), ProgressPage(), AccountPage()];
   PageController _controller = PageController(initialPage: 0);
 
   void _pageChange(int index) {
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    _getUserState();
+//    _getUserState();
     super.initState();
   }
 
@@ -59,8 +59,6 @@ class _HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.access_time), title: Text("时间胶囊")),
-          BottomNavigationBarItem(
-              icon: Icon(MdiIcons.compassOutline), title: Text("超展开")),
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite_border), title: Text("进度")),
           BottomNavigationBarItem(

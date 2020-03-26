@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               RaisedButton(
                 child: Text(
-                  "游客访问",
+                  "跳过",
                   style: Theme.of(context).textTheme.button,
                 ),
                 onPressed: _skipLogin,

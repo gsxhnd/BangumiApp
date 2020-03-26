@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:bangumi/config.dart';
-import 'package:bangumi/api/auth.dart';
+import '../../config.dart';
+import '../../api/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -67,7 +67,7 @@ class _LoginWebViewPageState extends State<LoginWebViewPage> {
       url:
           "https://bgm.tv/oauth/authorize?client_id=$appId&response_type=code&redirect_uri=$redirectUri",
       appBar: AppBar(
-        title: Text("login"),
+        title: Text("登录Bangumi账号"),
       ),
     );
   }
