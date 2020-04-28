@@ -104,6 +104,13 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
     source: hosted
     version: "1.2.2"
+  flutter_styled_toast:
+    dependency: "direct main"
+    description:
+      name: flutter_styled_toast
+      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
+    source: hosted
+    version: "1.2.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -176,7 +183,7 @@ packages:
       name: material_design_icons_flutter
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
     source: hosted
-    version: "3.4.5045+1"
+    version: "4.0.5145"
   meta:
     dependency: transitive
     description:
@@ -199,7 +206,7 @@ packages:
     source: hosted
     version: "1.6.4"
   path_provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: path_provider
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
@@ -232,14 +239,14 @@ packages:
       name: permission_handler
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
     source: hosted
-    version: "4.4.0+hotfix.4"
+    version: "5.0.0+hotfix.4"
   permission_handler_platform_interface:
     dependency: transitive
     description:
       name: permission_handler_platform_interface
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
     source: hosted
-    version: "1.0.0"
+    version: "2.0.0"
   petitparser:
     dependency: transitive
     description:
@@ -408,3 +415,4 @@ packages:
     version: "3.5.0"
 sdks:
   dart: ">=2.7.0 <3.0.0"
+  flutter: ">=1.12.13+hotfix.5 <2.0.0"
