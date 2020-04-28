@@ -13,7 +13,7 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="bangumi"
+        android:label="Bangumi"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
