@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'progress/ProgressPage.dart';
-import 'rakuen/RakuenPage.dart';
 import 'timeline/TimeLinePage.dart';
 import 'account/AccountPage.dart';
 
-import '../api/auth.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -28,14 +24,8 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _getUserState() async {
-      await AuthRequest.getAccessTokenStatus("").then((_) {
-      });
-  }
-
   @override
   void initState() {
-//    _getUserState();
     super.initState();
   }
 
@@ -66,7 +56,6 @@ class _HomePageState extends State<HomePage> {
         ],
         currentIndex: _currentIndex,
         onTap: (index) {
-//          print(_title[index]);
           _controller.jumpToPage(index);
         },
       ),

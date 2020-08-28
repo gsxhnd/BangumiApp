@@ -14,16 +14,11 @@ class MyApp extends StatelessWidget {
       title: 'Bangumi',
       theme: ThemeData(
           primarySwatch: Colors.blue,
-//        buttonColor: Color.fromARGB(255, 183, 50, 39),
           buttonColor: Colors.white,
           brightness: Brightness.light,
           appBarTheme: AppBarTheme(color: Color.fromARGB(255, 240, 145, 153)),
-          textTheme: TextTheme(
-              title: TextStyle(color: Colors.white),
-              button: TextStyle(color: Colors.white)),
-          primaryTextTheme: TextTheme(
-              title: TextStyle(color: Colors.white),
-              button: TextStyle(color: Colors.white)),
+          textTheme: TextTheme(button: TextStyle(color: Colors.white)),
+          primaryTextTheme: TextTheme(button: TextStyle(color: Colors.white)),
           primaryIconTheme: IconThemeData(color: Colors.white),
           tabBarTheme: TabBarTheme(labelColor: Colors.white),
           buttonTheme: ButtonThemeData(

@@ -13,7 +13,6 @@ class LoginWebViewPage extends StatefulWidget {
 
 class _LoginWebViewPageState extends State<LoginWebViewPage> {
   final flutterWebViewPlugin = new FlutterWebviewPlugin();
-  StreamSubscription<String> _onUrlChanged;
   String redirectUri = config.redirectUri;
   String appId = config.appId;
   String accessToken, refreshToken, userId;
