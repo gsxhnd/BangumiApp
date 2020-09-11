@@ -4,8 +4,7 @@ class Url {
   static const String _devStaticUrl = "";
   static const String _proStaticUrl = "";
   static const String _devWebViewUrl = "";
-  static const String _proWebViewUrl = "";
-
+  static const String _proWebViewUrl = "http://192.168.4.238:8080";
 
   factory Url() {
     final getUrl = Url._internal();
