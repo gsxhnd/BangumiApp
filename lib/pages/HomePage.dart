@@ -4,7 +4,6 @@ import 'progress/ProgressPage.dart';
 import 'timeline/TimeLinePage.dart';
 import 'account/AccountPage.dart';
 
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();

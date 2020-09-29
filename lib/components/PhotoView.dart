@@ -3,8 +3,7 @@ import 'package:photo_view/photo_view.dart';
 
 import '../utils/UrlUtils.dart';
 
-
-showPhotoView(context,src, {type = "local"}) {
+showPhotoView(context, src, {type = "local"}) {
   return showGeneralDialog(
     context: context,
     barrierLabel: "",
@@ -16,9 +15,11 @@ showPhotoView(context,src, {type = "local"}) {
       return Stack(
         children: <Widget>[
           Container(
-              padding: EdgeInsets.fromLTRB(0, 50,0,0),
+              padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
               child: PhotoView(
-                imageProvider: type == "local" ? FileImage(src) : NetworkImage(Url.getUrl("static") + src),
+                imageProvider: type == "local"
+                    ? FileImage(src)
+                    : NetworkImage(Url.getUrl("static") + src),
               )),
           Container(
               padding: EdgeInsets.fromLTRB(0, 40, 20, 0),
@@ -27,9 +28,8 @@ showPhotoView(context,src, {type = "local"}) {
                 onTap: () {
                   Navigator.of(context).pop();
                 },
-                child: Icon(Icons.highlight_off,color: Colors.white,size: 30),
-              )
-          )
+                child: Icon(Icons.highlight_off, color: Colors.white, size: 30),
+              ))
         ],
       );
     },

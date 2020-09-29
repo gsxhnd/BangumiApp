@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../components/NeedLoginWidget.dart';
+import 'package:BangumiApp/components/NeedLoginWidget.dart';
 
 class AccountPage extends StatefulWidget {
   @override
@@ -17,7 +15,6 @@ class _AccountPageState extends State<AccountPage> {
     setState(() {
       _accessToken = prefs.getString("access_token");
     });
-
   }
 
   @override

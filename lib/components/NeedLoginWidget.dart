@@ -7,9 +7,13 @@ class NeedLoginWidget extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text("使用Bangumi账号登陆"),
-          RaisedButton(onPressed: (){
-            Navigator.of(context).pushNamedAndRemoveUntil('/login',(route) => route == null);
-          },child: Text("登入"),)
+          RaisedButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('/login', (route) => route == null);
+            },
+            child: Text("登入"),
+          )
         ],
       ),
     );
