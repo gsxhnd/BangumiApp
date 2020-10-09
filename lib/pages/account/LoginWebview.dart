@@ -31,7 +31,6 @@ class _LoginWebViewPageState extends State<LoginWebViewPage> {
     flutterWebViewPlugin.onUrlChanged.listen((String url) async {
       if (mounted) {
         if (RegExp('^$redirectUri').hasMatch(url)) {
-          print("url is match");
           String code = url.substring("$redirectUri?code=".length);
           await AuthRequest.getAccessToken(code).then((v) {
             accessToken = v.data['data']['access_token'];
@@ -65,6 +64,7 @@ class _LoginWebViewPageState extends State<LoginWebViewPage> {
       // https://bgm.tv/oauth/authorize?client_id=bgm13805e31595be3d6d&response_type=code&redirect_uri=http://192.168.4.238:8080/code
       url:
           "https://bgm.tv/oauth/authorize?client_id=$appId&response_type=code&redirect_uri=$redirectUri",
+
       appBar: AppBar(
         title: Text("登录Bangumi账号"),
       ),

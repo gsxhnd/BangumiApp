@@ -1,95 +1,25 @@
+import 'package:BangumiApp/config.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../components/Toast.dart';
-import 'UrlUtils.dart';
-
-class ResponseData {
-  final String code;
-  final String message;
-  final String date;
-
-  ResponseData(this.code, this.message, this.date);
-
-  ResponseData.fromJson(Map json)
-      : code = json['code'],
-        message = json['message'],
-        date = json['date'];
-}
 
 class HttpUtil {
-  /// global dio object
   static Dio dio;
-
-  /// global options
-  static final String apiPrefix = Url.getUrl("api");
-  static const int CONNECT_TIMEOUT = 10000;
-  static const int RECEIVE_TIMEOUT = 10000;
-
-  /// http request methods
-  static const String GET = 'get';
-  static const String POST = 'post';
-  static const String PUT = 'put';
-  static const String PATCH = 'patch';
-  static const String DELETE = 'delete';
+  static HttpUtil _instance;
 
   static BaseOptions options = new BaseOptions(
-//    baseUrl: apiPrefix,
-    connectTimeout: CONNECT_TIMEOUT,
-    receiveTimeout: RECEIVE_TIMEOUT,
-    responseType: ResponseType.json,
-  );
-
-  static BaseOptions optionsWithoutPrefix = new BaseOptions(
-    baseUrl: apiPrefix,
-    connectTimeout: CONNECT_TIMEOUT,
-    receiveTimeout: RECEIVE_TIMEOUT,
+    baseUrl: "https://bgm.tv",
+    connectTimeout: 10000,
+    receiveTimeout: 10000,
     responseType: ResponseType.json,
   );
 
   HttpUtil() {
-    dio = createInstance();
-    dio.interceptors
-        .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
-      print('请求地址：【' + options.method + options.baseUrl + options.path + '】');
-      print('请求参数：' + options.data.toString());
-      return options;
-    }, onResponse: (Response response) async {
-      print('响应数据：' + response.data.toString());
-      print('响应头:' + response.headers.toString());
-      print('响应状态:' + response.statusCode.toString());
-      print("相应数据:" + response.data.toString());
-      if (response.statusCode != 200) {
-        throw new DioError(error: "");
-      }
-      return response;
-    }, onError: (DioError err) {
-      switch (err.error) {
-        case (20103):
-          Toast.fail("Token异常或过期，请重新登录");
-          break;
-        case (20104):
-          Toast.warm("帐号或密码错误");
-          break;
-      }
-      switch (err.type.index) {
-        case (0):
-          Toast.fail("网络超时");
-          break;
-        case (1):
-          Toast.fail("网络超时");
-          break;
-        case (2):
-          Toast.fail("网络超时");
-          break;
-        default:
-          Toast.warm(err.message.toString());
-          print("default:" + err.message.toString());
-          break;
-      }
-    }));
-    if (Url.isDev()) {
+    dio = new Dio(options);
+    dio.interceptors.add(CustomInterceptors());
+    if (!config.isProd) {
       (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
           (client) {
         client.findProxy = (uri) {
@@ -107,28 +37,72 @@ class HttpUtil {
     method = method ?? 'GET';
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     String userToken = sharedPreferences.getString("access_token");
-    if (userToken == null) {
-    } else {
+    if (userToken != null) {
       dio.options.headers["Authorization"] = "Bearer " + userToken;
     }
-
-    Response response = await dio.request(url,
-        data: data, options: new Options(method: method));
+    options.method = method;
+    Response response = await dio.request(
+      url,
+      data: data,
+      options: Options(method: method),
+    );
 
     return response;
   }
 
-  /// 创建 dio 实例对象
-  static Dio createInstance() {
-    if (dio == null) {
-      /// 全局属性：请求前缀、连接超时时间、响应超时时间
-      dio = new Dio(options);
+  static HttpUtil getInstance() {
+    if (null == _instance) {
+      _instance = new HttpUtil();
+      return _instance;
     }
-    return dio;
+    return _instance;
+  }
+}
+
+class CustomInterceptors extends InterceptorsWrapper {
+  @override
+  Future onRequest(RequestOptions options) {
+    print('请求地址：【' + options.method + options.baseUrl + options.path + '】');
+    print('请求参数：' + options.data.toString());
+    return super.onRequest(options);
   }
 
-  /// 清空 dio 对象
-  static clear() {
-    dio = null;
+  @override
+  Future onResponse(Response response) {
+    print('响应数据：' + response.data.toString());
+    print('响应头:' + response.headers.toString());
+    print('响应状态:' + response.statusCode.toString());
+    if (response.statusCode != 200) {
+      throw new DioError(error: "");
+    }
+    return super.onResponse(response);
+  }
+
+  @override
+  Future onError(DioError err) {
+    switch (err.error) {
+      case (20103):
+        Toast.fail("Token异常或过期，请重新登录");
+        break;
+      case (20104):
+        Toast.warm("帐号或密码错误");
+        break;
+    }
+    switch (err.type.index) {
+      case (0):
+        Toast.fail("网络超时");
+        break;
+      case (1):
+        Toast.fail("网络超时");
+        break;
+      case (2):
+        Toast.fail("网络超时");
+        break;
+      default:
+        Toast.warm(err.message.toString());
+        print("default:" + err.message.toString());
+        break;
+    }
+    return super.onError(err);
   }
 }

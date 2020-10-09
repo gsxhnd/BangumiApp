@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 
-import '../utils/UrlUtils.dart';
-
 showPhotoView(context, src, {type = "local"}) {
   return showGeneralDialog(
     context: context,
@@ -17,9 +15,8 @@ showPhotoView(context, src, {type = "local"}) {
           Container(
               padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
               child: PhotoView(
-                imageProvider: type == "local"
-                    ? FileImage(src)
-                    : NetworkImage(Url.getUrl("static") + src),
+                imageProvider:
+                    type == "local" ? FileImage(src) : NetworkImage("" + src),
               )),
           Container(
               padding: EdgeInsets.fromLTRB(0, 40, 20, 0),

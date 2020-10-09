@@ -19,7 +19,7 @@ class AuthRequest {
 //      "state": "12313"
 //    };
     String url = "http://192.168.4.238:8080/code?code=$code";
-    return HttpUtil().request(url, method: "GET");
+    return HttpUtil.getInstance().request(url, method: "GET");
   }
 
   /// 授权有效期刷新
@@ -38,7 +38,7 @@ class AuthRequest {
       "refresh_token": refreshToken,
       "redirect_uri": "http:///code",
     };
-    return HttpUtil()
+    return HttpUtil.getInstance()
         .request("/oauth/access_token", method: "POST", data: data);
   }
 
@@ -50,7 +50,7 @@ class AuthRequest {
   ///  "scope":null,
   ///  "user_id" : USER_ID
   static Future getAccessTokenStatus(String accessToken) {
-    return HttpUtil()
-        .request("https://bgm.tv/oauth/token_status", method: "POST");
+    return HttpUtil.getInstance()
+        .request("/oauth/token_status", method: "POST");
   }
 }
