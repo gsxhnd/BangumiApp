@@ -25,8 +25,8 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
     _getAppGlobalState();
-    _controller = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 3000));
+    _controller = AnimationController(duration: Duration(milliseconds: 3000));
+
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     /*动画事件监听器，
     它可以监听到动画的执行状态，

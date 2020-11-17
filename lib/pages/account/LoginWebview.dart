@@ -1,10 +1,12 @@
 import 'dart:async';
-import '../../config.dart';
-import '../../api/auth.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../components/Toast.dart';
+
+import 'package:BangumiApp/config.dart';
+import 'package:BangumiApp/api/auth.dart';
+import 'package:BangumiApp/components/Toast.dart';
 
 class LoginWebViewPage extends StatefulWidget {
   @override
